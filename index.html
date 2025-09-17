@@ -1,100 +1,770 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reginaldo Pérez - CV</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700&display=swap">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reginaldo Perez - Consultor TI | Profesional Linux</title>
+    <meta name="description" content="Consultor TI especializado en Linux, Cloud Computing y Bases de Datos con más de 20 años de experiencia.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --bg-white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .location {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .contact-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-white);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            background: var(--bg-white);
+            margin-bottom: 2px;
+        }
+
+        .section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            display: block;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-category {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-category i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            padding: 5px 0;
+            color: var(--text-light);
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 50px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 50px;
+        }
+
+        .timeline-content {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-left-color: var(--bg-white);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-right-color: var(--bg-white);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--bg-white), 0 0 0 8px var(--secondary-color);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -35px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -35px;
+        }
+
+        .job-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .job-description ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .job-description li {
+            margin-bottom: 5px;
+        }
+
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-item {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .cert-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .nav ul {
+                gap: 20px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 11px !important;
+            }
+
+            .timeline-content::after {
+                left: -15px !important;
+                border-right-color: var(--bg-white) !important;
+                border-left-color: transparent !important;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="section_left">
-      <img src="images/foto.jpeg" alt="Reginaldo Pérez" class="profile-image">
-      <h1 class="title">REGINALDO PÉREZ</h1>
-
-      <h2 class="sub-title">CONTACTO</h2>
-      <p>reginaldo.perez@outlook.com</p>
-      <p>www.linkedin.com/in/reginaldo-perez</p>
-
-      <h2 class="sub-title">EDUCACIÓN</h2>
-      <p><strong>Universidad:</strong> Universidad Tecnológica de Panamá</p>
-      <p><strong>Título:</strong> Ingeniero Eléctrico</p>
-      <p><strong>Graduación:</strong> 14 de febrero de 1995</p>
-
-      <h2 class="sub-title">IDIOMAS</h2>
-      <p>Español</p>
-      <div class="progress_container">
-        <div class="progress_bar" style="width:100%"></div>
-      </div>
-      <p>Ingles Técnico</p>
-      <div class="progress_container">
-        <div class="progress_bar" style="width:75%"></div>
-      </div>
-      <p>Ingles Hablado</p>
-      <div class="progress_container">
-        <div class="progress_bar" style="width:50%"></div>
-      </div>
-    </div>
-
-    <div class="section_right">
-      <h1 class="title">PERFIL</h1>
-      <p>Soy un profesional de la tecnología de la información con amplia experiencia trabajando en empresas dedicadas a las telecomunicaciones y el soporte de hardware y software. Durante mi carrera he trabajado con proveedores de internet, desempeñando funciones de soporte y administración de red tanto en Panamá como en la Zona Libre de Colón. Además, he participado en proyectos de digitalización de documentos y colaborado con empresas especializadas en el desarrollo de aplicaciones web, bases de datos y consultoría.</p>
-      <p>Entre mis logros, destaca mi certificación como Ingeniero de Preventa de ORACLE, así como mi experiencia en la instalación y mantenimiento de servidores GNU-LINUX. Además, tengo conocimientos en la administración de bases de datos ORACLE, MYSQL y POSTGRES, así como experiencia en trabajar con las nubes de Google, Amazon y Oracle.</p>
-
-      <h1 class="title">EXPERIENCIA</h1>
-      <h2 class="sub-title">Analista de Infraestructura</h2>
-      <p>Autoridad para la Innovación Gubernamental de Panamá. (AIG)</p>
-      <p>jul. 2021 - actualidad</p>
-
-      <h2 class="sub-title">Consultor en sistemas operativos y bases de datos</h2>
-      <p>Zingular Consulting</p>
-      <p>dic. 2017 - mar. 2019</p>
-
-      <h2 class="sub-title">Analista de soporte técnico</h2>
-      <p>Quantic Vision</p>
-      <p>dic. 2013 - may. 2016</p>
-
-      <h2 class="sub-title">Analista de soporte técnico</h2>
-      <p>GSI Internacional</p>
-      <p>jul. 2007 - mar. 2013</p>
-
-      <h1 class="title">HABILIDADES</h1>
-      <table>
-        <tr>
-          <td>GNU-LINUX</td>
-          <td>
-            <div class="progress_container">
-              <div class="progress_bar" style="width:90%"></div>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                    <img src="img/perfil.jpg" alt="Reginaldo Perez" class="profile-photo">
+                </div>
+                <h1>Reginaldo Perez</h1>
+                <p class="subtitle">Consultor TI | Profesional Linux | Soporte Técnico</p>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> San Miguelito, Panamá</p>
+                <div class="contact-links">
+                    <a href="mailto:reginaldo.perez@outlook.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/reginaldo-perez" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Infraestructura</td>
-          <td>
-            <div class="progress_container">
-              <div class="progress_bar" style="width:75%"></div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#certificaciones">Certificaciones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="sobre-mi" class="section">
+            <div class="container">
+                <h2>Sobre Mí</h2>
+                <div class="about-content">
+                    <p>Soy un profesional de la tecnología de la información con más de 20 años de experiencia trabajando en empresas dedicadas a las telecomunicaciones y el soporte de hardware y software. Durante mi carrera he trabajado con proveedores de internet, desempeñando funciones de soporte y administración de red tanto en Panamá como en la Zona Libre de Colón.</p>
+                    <br>
+                    <p>He participado en proyectos de digitalización de documentos y colaborado con empresas especializadas en el desarrollo de aplicaciones web, bases de datos y consultoría. Entre mis logros, destaca mi certificación como Ingeniero de Preventa de ORACLE, así como mi experiencia en la instalación y mantenimiento de servidores GNU-LINUX.</p>
+                    <br>
+                    <p>Tengo conocimientos en la administración de bases de datos ORACLE, MYSQL y POSTGRES, así como experiencia trabajando con las nubes de Google, Amazon y Oracle. Estoy siempre en busca de nuevos desafíos en el área de tecnología y me apasiona seguir aprendiendo.</p>
+                </div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Telecomunicaciones</td>
-          <td>
-            <div class="progress_container">
-              <div class="progress_bar" style="width:75%"></div>
+        </section>
+
+        <section id="habilidades" class="section">
+            <div class="container">
+                <h2>Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <i class="fab fa-linux"></i>
+                        <h3>Sistemas Operativos</h3>
+                        <ul class="skills-list">
+                            <li>GNU-Linux (Red Hat, Ubuntu)</li>
+                            <li>AIX</li>
+                            <li>Administración de Servidores</li>
+                            <li>Hardening de Seguridad</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Computing</h3>
+                        <ul class="skills-list">
+                            <li>Google Cloud Platform</li>
+                            <li>Oracle Cloud Infrastructure</li>
+                            <li>Amazon Web Services</li>
+                            <li>Infraestructura como Código</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-database"></i>
+                        <h3>Bases de Datos</h3>
+                        <ul class="skills-list">
+                            <li>Oracle Database</li>
+                            <li>MySQL</li>
+                            <li>PostgreSQL</li>
+                            <li>Tuning y Optimización</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-code"></i>
+                        <h3>Programación</h3>
+                        <ul class="skills-list">
+                            <li>Python</li>
+                            <li>Shell Scripting</li>
+                            <li>Automatización</li>
+                            <li>CI/CD</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Redes y Seguridad</h3>
+                        <ul class="skills-list">
+                            <li>Configuración VPN</li>
+                            <li>Monitoreo de Infraestructura</li>
+                            <li>Servidores Web Apache</li>
+                            <li>DNS y Email Servers</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-tools"></i>
+                        <h3>DevOps y Herramientas</h3>
+                        <ul class="skills-list">
+                            <li>Bitbucket</li>
+                            <li>Grafana</li>
+                            <li>Tableau</li>
+                            <li>Keycloak</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Bases de datos</td>
-          <td>
-            <div class="progress_container">
-              <div class="progress_bar" style="width:50%"></div>
+        </section>
+
+        <section id="experiencia" class="section">
+            <div class="container">
+                <h2>Experiencia Profesional</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="job-title">Consultor de Tecnología</div>
+                            <div class="company">SOAINT</div>
+                            <div class="duration">Julio 2021 - Presente</div>
+                            <div class="job-description">
+                                <p>Analista de Infraestructura en la Autoridad para la Innovación Gubernamental de Panamá (AIG)</p>
+                                <ul>
+                                    <li>Administración de recursos de infraestructura en Google Cloud para el proyecto PORTCEL</li>
+                                    <li>Monitoreo utilizando GCP, Grafana y configuración de alertas</li>
+                                    <li>Configuración de túneles VPN para instituciones gubernamentales</li>
+                                    <li>Administración de plataformas CI/CD Bitbucket, Tableau y TeamCity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="job-title">Consultor Autónomo</div>
+                            <div class="company">Wipro Limited</div>
+                            <div class="duration">Enero 2020 - Julio 2021</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Soporte de aplicación SAP en la nube</li>
+                                    <li>Resolución de problemas de conexión</li>
+                                    <li>Validación de cuentas y diagnóstico de aplicaciones</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="job-title">Ingeniero de Soporte a Sistemas y BD</div>
+                            <div class="company">ZINGULAR CONSULTING</div>
+                            <div class="duration">Diciembre 2017 - Marzo 2019</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Soporte a bases de datos Oracle y sistemas Linux/AIX</li>
+                                    <li>Hardening de servidores Linux</li>
+                                    <li>Configuración de replicación y respaldos programados</li>
+                                    <li>Tuning de bases de datos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="job-title">Especialista en Redes</div>
+                            <div class="company">Convergence Communications</div>
+                            <div class="duration">Julio 1998 - Enero 2003</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Administración de servidores Linux Red Hat</li>
+                                    <li>Gestión de servidor Web Apache y correo Sendmail</li>
+                                    <li>Administración de servidor DNS Bind</li>
+                                    <li>Monitoreo de red de internet de última milla</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
+        </section>
+
+        <section id="certificaciones" class="section">
+            <div class="container">
+                <h2>Certificaciones</h2>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Oracle VM 3 PreSales Specialist</h3>
+                        <p>Especialización en preventa de soluciones de virtualización Oracle</p>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Oracle Cloud Infrastructure 2022 Certified Foundations Associate</h3>
+                        <p>Fundamentos certificados en Oracle Cloud Infrastructure</p>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-server"></i>
+                        <h3>Oracle x86 Systems PreSales Specialist</h3>
+                        <p>Especialista en sistemas x86 de Oracle</p>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fab fa-google"></i>
+                        <h3>Infrastructure and Application Modernization with Google Cloud</h3>
+                        <p>Modernización de infraestructura y aplicaciones en Google Cloud</p>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fab fa-python"></i>
+                        <h3>PCAP: Programming Essentials in Python</h3>
+                        <p>Fundamentos de programación en Python certificados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <p>¿Interesado en colaborar? ¡Hablemos!</p>
+            <p>Siempre en busca de nuevos desafíos en el área de tecnología</p>
+            <div class="footer-links">
+                <a href="mailto:reginaldo.perez@outlook.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/reginaldo-perez" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p style="margin-top: 30px; opacity: 0.7;">© 2024 Reginaldo Perez. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to timeline items
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+
+        // Observe skill categories
+        document.querySelectorAll('.skill-category').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+
+        // Observe certification items
+        document.querySelectorAll('.cert-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+    </script>
 </body>
 </html>
